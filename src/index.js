@@ -1,16 +1,15 @@
 import './sass/main.scss';
-import {fetchCountries} from "./fetchCountries";
+import API from "./fetchCountries";
 import { throttle } from 'throttle-debounce';
 import country from './templates/country.hbs';
-import country_list from './templates/country_list.hbs'
+import country_list from './templates/country_list.hbs';
 import Notiflix from 'notiflix';
+import {refs} from "./getRefs"
 
 const DEBOUNCE_DELAY = 500;
-const input = document.querySelector("#search-box");
-const countryInfo = document.querySelector(".country-info");
-const countryList = document.querySelector(".country-list")
 
-input.addEventListener('keyup',throttle(DEBOUNCE_DELAY,(event)=>{
+
+refs.input.addEventListener('keyup',throttle(DEBOUNCE_DELAY,(event)=>{
    const countryName =  event.target.value.trim();
 
    if(countryName === ""){
@@ -18,7 +17,7 @@ input.addEventListener('keyup',throttle(DEBOUNCE_DELAY,(event)=>{
         return;
    }
 
-   fetchCountries(countryName)
+   API.fetchCountries(countryName)
         .then(renderData)
         .catch((error) => {
             clearPage();
@@ -33,13 +32,13 @@ function renderData(data){
         if(data.length < 2){
             clearPage();
             const markup = country(data[0]);
-            countryInfo.innerHTML = markup;
+            refs.countryInfo.innerHTML = markup;
         }
         else if(data.length < 11){
             clearPage();
             let slicedData = data.slice(0,10);
             const markup = country_list(slicedData);
-            countryList.innerHTML = markup;
+            refs.countryList.innerHTML = markup;
          }
         else if(data.length > 10){
             clearPage();
@@ -49,7 +48,7 @@ function renderData(data){
 
 
 function clearPage(){
-    countryInfo.innerHTML = "";
-    countryList.innerHTML = "";
+    refs.countryInfo.innerHTML = "";
+    refs.countryList.innerHTML = "";
 }
 
