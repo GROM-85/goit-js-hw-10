@@ -1,0 +1,36 @@
+{
+  "name": "goit-js-hw-10",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GROM-85/goit-js-hw-10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GROM-85/goit-js-hw-10/issues"
+  },
+  "homepage": "https://github.com/GROM-85/goit-js-hw-10#readme",
+  "description": "HW10",
+  "dependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "handlebars": "^4.7.7",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6",
+    "parcel": "^2.8.2",
+    "throttle-debounce": "^5.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-posthtml": "^2.8.2",
+    "install": "^0.13.0",
+    "npm": "^9.3.1",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
+    "posthtml-include": "^1.7.4"
+  }
+}

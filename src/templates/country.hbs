@@ -1,0 +1,13 @@
+<div class="title">
+    <img src={{flags.png}} alt="flag" width="50">
+    <h2 class="country">{{name.official}}</h2>
+</div>
+<p class="description">Capital: <span>{{capital}}</span></p>
+<p class="description">Population: <span>{{population}}</span></p>
+<p class="description">Languages: 
+    {{#each languages}}
+    <span>{{this}}</span>{{#unless @last}},{{/unless}}
+    {{/each}}
+</p>
+
+
